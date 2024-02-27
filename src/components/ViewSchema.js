@@ -7,7 +7,7 @@ import {ViewGroupRecursive} from '../components/ViewGroup'
 export default ({groupByArr}) => {
     const [list, setList] = useState()
     const handleReply = data => {
-        if (data.status === 'OK') {
+        if (data.status === 'OK' || data.status === 'true') {
             setList(data.result)
         } else {
             alert(data.message)
@@ -27,6 +27,7 @@ export default ({groupByArr}) => {
     const buttons=[
         {
             label:'Anmälan',
+            type:'button',
             onClick:course=>navigate('/register', {state:course})
         }
     ]
